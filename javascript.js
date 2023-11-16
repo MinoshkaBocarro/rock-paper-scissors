@@ -41,10 +41,14 @@ function getPlayerChoice() {
 function game() {
     for (let i = 0; i < 5; i++) {
         getPlayerChoice();
-        getComputerChoice();
+        if (playerSelection === null) {
+            alert("Sorry to see you go")
+            break;
+        } getComputerChoice();
         playRound();
+        }
     }
-}
+
 
 function inputIncorrect () {
     if (numIncorrect < 2) {
