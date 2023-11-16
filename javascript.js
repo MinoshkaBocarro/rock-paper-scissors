@@ -47,12 +47,13 @@ function game() {
 }
 
 function inputIncorrect () {
-    if (numIncorrect < 3) {
+    if (numIncorrect < 2) {
         numIncorrect++;
         getPlayerChoice();
         getComputerChoice();
         playRound();
     } else {
-        alert("You forfeit this round")
+        alert("You forfeit this round");
+        numIncorrect = 0;
     }
 }
