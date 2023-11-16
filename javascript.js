@@ -1,3 +1,5 @@
+let numIncorrect = 0
+
 function getComputerChoice() {
     let random = Math.floor(Math.random()*3)+1; /*How this works - multiply by the number of options you want and add one*/
     if (random === 1) {
@@ -28,6 +30,7 @@ function playRound() { /*can't have anything inside () if using parameters (argu
         alert("You win! Don't question how your paper beats rock okay");
     } else {
         alert("Huh, that's not a rock, paper or scissors... try again");
+        inputIncorrect();
     }
 }
 
@@ -40,5 +43,16 @@ function game() {
         getPlayerChoice();
         getComputerChoice();
         playRound();
+    }
+}
+
+function inputIncorrect () {
+    if (numIncorrect < 3) {
+        numIncorrect++;
+        getPlayerChoice();
+        getComputerChoice();
+        playRound();
+    } else {
+        alert("You forfeit this round")
     }
 }
