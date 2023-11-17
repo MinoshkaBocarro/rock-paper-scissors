@@ -30,7 +30,8 @@ function playRound() { /*can't have anything inside () if using parameters (argu
         alert("You win! Don't question how your paper beats rock okay");
     } else {
         alert("Huh, that's not a rock, paper or scissors... try again");
-        inputIncorrect();
+        retryInput();
+        numIncorrect = 0;
     }
 }
 
@@ -42,7 +43,7 @@ function game() {
     for (let i = 0; i < 5; i++) {
         getPlayerChoice();
         if (playerSelection === null) {
-            alert("Sorry to see you go")
+            alert("Sorry to see you go");
             break;
         } getComputerChoice();
         playRound();
@@ -50,7 +51,7 @@ function game() {
     }
 
 
-function inputIncorrect () {
+function retryInput () {
     if (numIncorrect < 2) {
         numIncorrect++;
         getPlayerChoice();
@@ -58,6 +59,5 @@ function inputIncorrect () {
         playRound();
     } else {
         alert("You forfeit this round");
-        numIncorrect = 0;
     }
 }
