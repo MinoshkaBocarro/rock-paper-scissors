@@ -1,9 +1,7 @@
-let numIncorrect = 0
-
 function getComputerChoice() {
-    let random = Math.floor(Math.random()*3)+1; /*How this works - multiply by the number of options you want and add one*/
+    let random = Math.floor(Math.random()*3)+1;
     if (random === 1) {
-        return computerSelection = "rock"; /*if defining constant computerSelection = getComputerChoice(), can't return computerSelection = ... here*/
+        return computerSelection = "rock";
     } else if (random === 2) {
         return computerSelection = "paper";
     } else if (random === 3) {
@@ -12,52 +10,39 @@ function getComputerChoice() {
 }
 
 
-function playRound() { /*can't have anything inside () if using parameters (arguments?) from another function!*/
-    let playerSelectionAdjusted = playerSelection.toLowerCase();
-    if (playerSelectionAdjusted === computerSelection) {
-        alert("It's a Draw! You're on the same wavelength!"); /*if just returning (while testing) don't use return = ..., returns error as expects an expression */
-    } else if (playerSelectionAdjusted === "rock" && computerSelection === "paper") {
+function playRound() { 
+    if (playerSelection === computerSelection) {
+        alert("It's a Draw! You're on the same wavelength!"); 
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
         alert("You lose... that paper is stronger than your rock??");
-    } else if (playerSelectionAdjusted === "rock" && computerSelection === "scissors") {
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
         alert("You win!! Those scissors got demolished by your rock!");
-    } else if (playerSelectionAdjusted === "scissors" && computerSelection === "rock") {
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
         alert("You lose... yeah your scissors stook no chance against that rock");
-    } else if (playerSelectionAdjusted === "scissors" && computerSelection === "paper") {
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
         alert("You win! Cut up that paper prettily with your scissors");
-    } else if (playerSelectionAdjusted === "paper" && computerSelection === "scissors") {
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
         alert("You lose... ouch your paper got cut by those scissors");
-    } else if (playerSelectionAdjusted === "paper" && computerSelection === "rock") {
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
         alert("You win! Don't question how your paper beats rock okay");
-    } else {
-        alert("Huh, that's not a rock, paper or scissors... try again");
-        retryInput();
-        numIncorrect = 0;
     }
 }
 
-function getPlayerChoice() {
-    return playerSelection = prompt("Choose your weapon! Rock, paper or scissors",""); /* need to have prompt equating to return playerSelection to work properly */
-}
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        getPlayerChoice();
-        if (playerSelection === null) {
-            alert("Sorry to see you go");
-            break;
-        } getComputerChoice();
-        playRound();
-        }
-    }
+rock.addEventListener('click', () => {
+    getComputerChoice();
+    playRound(playerSelection="rock");
+});
 
+paper.addEventListener('click', () => {
+    getComputerChoice();
+    playRound(playerSelection="paper");
+});
 
-function retryInput () {
-    if (numIncorrect < 2) {
-        numIncorrect++;
-        getPlayerChoice();
-        getComputerChoice();
-        playRound();
-    } else {
-        alert("You forfeit this round");
-    }
-}
+scissors.addEventListener('click', () => {
+    getComputerChoice();
+    playRound(playerSelection="scissors");
+});
