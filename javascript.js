@@ -26,11 +26,8 @@ function playRound() {
     let computerScoreOutput = document.querySelector('.score-title .computer-score')
     currentScore(computerScoreOutput, playerScoreOutput)
     gameEnd = document.querySelector('.game-end');
-    if (playerScore === 5) {
-            gameEnd.textContent = "Game Over! Congrats on Winning!"
-        } 
-    else if (computerScore === 5) {
-            gameEnd.textContent = "Game Over... Sorry the comp outfoxed you this time"
+    if (gameOver === 1) {
+        return
     } else {
         if (playerSelection === computerSelection) {
             currentResult.textContent = 
@@ -56,6 +53,16 @@ function playRound() {
         }
         computerScoreOutput.textContent = computerScore;
         playerScoreOutput.textContent = playerScore;
+    } gameOver(playerScore, computerScore)
+}
+
+
+
+function gameOver() {
+    if (playerScore === 5) {
+        return (gameOver = 1, gameEnd.textContent = "Game Over! Congrats on Winning!");
+    } else if (computerScore === 5) {
+        return (gameOver = 1, gameEnd.textContent = "Game Over... Sorry the comp outfoxed you this time");
     }
 }
 
