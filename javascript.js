@@ -23,29 +23,38 @@ function playRound() {
         playerScore = parseInt(playerScoreOutput.textContent);
         computerScore = parseInt(computerScoreOutput.textContent);
     }
-    if (playerSelection === computerSelection) {
-        currentResult.textContent = "It's a Draw! You're on the same wavelength!";
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
-        currentResult.textContent = "You lose... that paper is stronger than your rock??";
-        computerScore += 1;
-    } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        currentResult.textContent = "You win!! Those scissors got demolished by your rock!";
-        playerScore += 1;
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        currentResult.textContent = "You lose... yeah your scissors stook no chance against that rock";
-        computerScore += 1;
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        currentResult.textContent = "You win! Cut up that paper prettily with your scissors";
-        playerScore += 1;
-    } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        currentResult.textContent = "You lose... ouch your paper got cut by those scissors";
-        computerScore += 1;
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        currentResult.textContent = "You win! Don't question how your paper beats rock okay";
-        playerScore += 1;
+    if (playerScore === 5 || computerScore === 5) {
+        gameEnd = document.querySelector('.game-end');
+        if (playerScore === 5) {
+            gameEnd.textContent = "Game Over! Congrats on Winning!"
+        } else {
+            gameEnd.textContent = "Game Over... Sorry the comp outfoxed you this time"
+        }
+    } else {
+        if (playerSelection === computerSelection) {
+            currentResult.textContent = "It's a Draw! You're on the same wavelength!";
+        } else if (playerSelection === "rock" && computerSelection === "paper") {
+            currentResult.textContent = "You lose... that paper is stronger than your rock??";
+            computerScore += 1;
+        } else if (playerSelection === "rock" && computerSelection === "scissors") {
+            currentResult.textContent = "You win!! Those scissors got demolished by your rock!";
+            playerScore += 1;
+        } else if (playerSelection === "scissors" && computerSelection === "rock") {
+            currentResult.textContent = "You lose... yeah your scissors stook no chance against that rock";
+            computerScore += 1;
+        } else if (playerSelection === "scissors" && computerSelection === "paper") {
+            currentResult.textContent = "You win! Cut up that paper prettily with your scissors";
+            playerScore += 1;
+        } else if (playerSelection === "paper" && computerSelection === "scissors") {
+            currentResult.textContent = "You lose... ouch your paper got cut by those scissors";
+            computerScore += 1;
+        } else if (playerSelection === "paper" && computerSelection === "rock") {
+            currentResult.textContent = "You win! Don't question how your paper beats rock okay";
+            playerScore += 1;
+        }
+        computerScoreOutput.textContent = computerScore;
+        playerScoreOutput.textContent = playerScore;
     }
-    computerScoreOutput.textContent = computerScore;
-    playerScoreOutput.textContent = playerScore;
 }
 
 const rock = document.querySelector('.rock');
