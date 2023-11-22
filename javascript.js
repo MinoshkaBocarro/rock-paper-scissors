@@ -57,7 +57,6 @@ function playRound() {
 }
 
 
-
 function gameOver() {
     if (playerScore === 5) {
         return (gameOver = 1, gameEnd.textContent = "Game Over! Congrats on Winning!");
@@ -67,7 +66,6 @@ function gameOver() {
 }
 
 
-
 function currentScore(computerScoreOutput,playerScoreOutput) {
     if (computerScoreOutput.textContent === "" && playerScoreOutput.textContent === "") {
         return (playerScore = 0, computerScore = 0);
@@ -75,7 +73,6 @@ function currentScore(computerScoreOutput,playerScoreOutput) {
         return (playerScore = parseInt(playerScoreOutput.textContent), computerScore = parseInt(computerScoreOutput.textContent));
     }
 }
-
 
 
 function getComputerChoice() {
